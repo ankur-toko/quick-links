@@ -1,0 +1,5 @@
+# Do not change values in this testdata as that might break tests
+app:
+  name: "Ankur"
+  port: 9000
+  

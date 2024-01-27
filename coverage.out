@@ -1,0 +1,23 @@
+mode: set
+github.com/ankur-toko/quick-links/config/config.go:12.13,14.2 1 1
+github.com/ankur-toko/quick-links/config/config.go:16.53,20.2 3 1
+github.com/ankur-toko/quick-links/config/config.go:22.37,24.16 2 1
+github.com/ankur-toko/quick-links/config/config.go:24.16,26.3 1 1
+github.com/ankur-toko/quick-links/config/config.go:26.8,28.3 1 1
+github.com/ankur-toko/quick-links/config/config.go:31.41,33.2 1 0
+github.com/ankur-toko/quick-links/core/validations/non_empty.go:11.54,12.32 1 1
+github.com/ankur-toko/quick-links/core/validations/non_empty.go:12.32,14.3 1 1
+github.com/ankur-toko/quick-links/core/validations/non_empty.go:15.2,15.12 1 1
+github.com/ankur-toko/quick-links/core/validations/url_checker.go:11.53,12.21 1 1
+github.com/ankur-toko/quick-links/core/validations/url_checker.go:12.21,14.3 1 1
+github.com/ankur-toko/quick-links/core/validations/url_checker.go:16.2,16.21 1 1
+github.com/ankur-toko/quick-links/core/validations/url_checker.go:16.21,18.3 1 1
+github.com/ankur-toko/quick-links/core/validations/url_checker.go:19.2,19.12 1 1
+github.com/ankur-toko/quick-links/core/validations/validations.go:19.51,21.2 1 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:23.54,25.33 2 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:25.33,27.15 2 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:27.15,29.4 1 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:31.2,31.19 1 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:31.19,33.3 1 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:34.2,34.12 1 0
+github.com/ankur-toko/quick-links/core/validations/validations.go:38.42,43.2 4 0
