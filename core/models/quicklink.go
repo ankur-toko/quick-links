@@ -6,8 +6,8 @@ import (
 )
 
 type QuickLink struct {
-	Key string
-	URL string
+	Key string `json:"key"`
+	URL string `json:"url"`
 }
 
 func (q *QuickLink) ToJSON() string {

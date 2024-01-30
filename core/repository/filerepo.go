@@ -2,6 +2,7 @@ package repository
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -12,6 +13,7 @@ import (
 )
 
 const separator = ":$%@$"
+const default_db_location = "./data/filedb"
 
 type FileDB struct {
 	dbFile      *os.File
@@ -35,8 +37,12 @@ func (db *FileDB) getDataFilePath() string {
 	return db.AbsFilePath
 }
 
-func GetFileDB(cacheDB QuickLinkRepo) (QuickLinkRepo, error) {
-	dbpath := "./data/filedb"
+func GetFileDB(cacheDB QuickLinkRepo) (*FileDB, error) {
+	dbpath := default_db_location
+
+	if cacheDB == nil {
+		return nil, errors.New("cache db cannot be null for file db repo")
+	}
 
 	err := os.MkdirAll(dbpath, 0777)
 	if err != nil && !os.IsExist(err) {
@@ -50,8 +56,6 @@ func GetFileDB(cacheDB QuickLinkRepo) (QuickLinkRepo, error) {
 	db.ch = make(chan models.QuickLink, 100)
 
 	db.initDBPath()
-
-	fmt.Print(db.getDataFilePath())
 
 	_, e := db.createFileIfNotExist()
 	if e != nil {
@@ -115,7 +119,6 @@ func (db *FileDB) initializeDb() error {
 	}
 
 	if err := scanner.Err(); err != nil {
-		log.Print("Adasd", err)
 		return err
 	}
 	return nil
@@ -149,6 +152,6 @@ func serialize(r models.QuickLink) string {
 	return r.Key + separator + r.URL + "\n"
 }
 
-func (db *FileDB) Get(key string) models.QuickLink {
+func (db *FileDB) Get(key string) *models.QuickLink {
 	return db.CacheDB.Get(key)
 }

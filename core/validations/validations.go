@@ -7,6 +7,8 @@ import (
 	"github.com/ankur-toko/quick-links/core/models"
 )
 
+var validations []ValidationCheck
+
 type ValidationCheck interface {
 	// Returns nil if no problem
 	Check(models.QuickLink) error
@@ -35,9 +37,10 @@ func (v Validations) Check(r models.QuickLink) error {
 
 }
 
-func GetAllValidations() ValidationCheck {
-	v := Validations{}
-	v.add(NonEmptyCheck{})
-	v.add(URLValidator{})
-	return v
+func DefaultValidatorObj() Validations {
+	return Validations{validators: validations}
+}
+
+func addValidation(v ValidationCheck) {
+	validations = append(validations, v)
 }

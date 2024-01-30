@@ -10,7 +10,7 @@ import (
 
 type Core interface {
 	SaveQuickLink(models.QuickLink) error
-	GetQuickLink(key string) models.QuickLink
+	GetQuickLink(key string) *models.QuickLink
 }
 
 type BaseCore struct {
@@ -21,7 +21,7 @@ type BaseCore struct {
 
 func CreateCoreClassObject() (Core, error) {
 	bc := BaseCore{}
-	bc.Validations = validations.GetAllValidations()
+	bc.Validations = validations.DefaultValidatorObj()
 	db, e := repository.GetFileDB(repository.GetMemoryDB())
 	if e != nil {
 		return nil, e
@@ -43,6 +43,6 @@ func (c *BaseCore) SaveQuickLink(record models.QuickLink) error {
 	return nil
 }
 
-func (c *BaseCore) GetQuickLink(key string) models.QuickLink {
+func (c *BaseCore) GetQuickLink(key string) *models.QuickLink {
 	return c.DB.Get(key)
 }
