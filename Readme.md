@@ -1,2 +1,3 @@
 ***Quick Links***
+[![Coverage Status](https://coveralls.io/repos/github/ankur-toko/quick-links/badge.svg)](https://coveralls.io/github/ankur-toko/quick-links)
 A way to configure your frequently used links into smaller rememberable links so that they can be access quickly
