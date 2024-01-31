@@ -30,7 +30,6 @@ func (db *FileDB) initDBPath() (string, error) {
 	}
 	db.AbsFilePath = p
 	return db.AbsFilePath, e
-
 }
 
 func (db *FileDB) getDataFilePath() string {
@@ -142,7 +141,7 @@ func (db *FileDB) processSaveRequests() {
 func (db *FileDB) persistData(r models.QuickLink) error {
 	_, e := db.dbFile.Write([]byte(serialize(r)))
 	if e != nil {
-		fmt.Println("unable to store in persistant db", e)
+		fmt.Println("unable to store in persistent db", e)
 		return e
 	}
 	return nil

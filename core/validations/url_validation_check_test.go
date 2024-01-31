@@ -24,7 +24,7 @@ func TestURLRegexCheck_Check(t *testing.T) {
 			"URL Validation 1",
 			urlChecker,
 			args{
-				models.QuickLink{"abc", "www.google.com"},
+				models.QuickLink{Key: "abc", URL: "www.google.com"},
 			},
 			true,
 		},
@@ -32,7 +32,7 @@ func TestURLRegexCheck_Check(t *testing.T) {
 			"URL Validation 2",
 			urlChecker,
 			args{
-				models.QuickLink{"abc", "google.com"},
+				models.QuickLink{Key: "abc", URL: "google.com"},
 			},
 			true,
 		},
@@ -48,7 +48,7 @@ func TestURLRegexCheck_Check(t *testing.T) {
 			"URL Validation 4",
 			urlChecker,
 			args{
-				models.QuickLink{"abc", "www.google"},
+				models.QuickLink{Key: "abc", URL: "www.google"},
 			},
 			true,
 		},
@@ -56,7 +56,7 @@ func TestURLRegexCheck_Check(t *testing.T) {
 			"URL Validation 5",
 			urlChecker,
 			args{
-				models.QuickLink{"abc", "http://www.google"},
+				models.QuickLink{Key: "abc", URL: "http://www.google"},
 			},
 			false,
 		},
@@ -64,7 +64,7 @@ func TestURLRegexCheck_Check(t *testing.T) {
 			"URL Validation 6",
 			urlChecker,
 			args{
-				models.QuickLink{"abc", "http://10.41.4.1"},
+				models.QuickLink{Key: "abc", URL: "http://10.41.4.1"},
 			},
 			false,
 		},
@@ -72,7 +72,7 @@ func TestURLRegexCheck_Check(t *testing.T) {
 			"URL Validation 7",
 			urlChecker,
 			args{
-				models.QuickLink{"abc", "http://10.41.4.1?asd=afada&asdlijasd=afnalkfsnsladmnaksdmasdamsd"},
+				models.QuickLink{Key: "abc", URL: "http://10.41.4.1?asd=afada&asdlijasd=afnalkfsnsladmnaksdmasdamsd"},
 			},
 			false,
 		},

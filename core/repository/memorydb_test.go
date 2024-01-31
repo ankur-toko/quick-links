@@ -8,10 +8,8 @@ import (
 )
 
 func TestGetMemoryDB(t *testing.T) {
-
 	r := GetMemoryDB()
 	assert.NotNil(t, r)
-
 	assert.True(t, r.(*MemoryDB).m != nil)
 }
 

@@ -54,7 +54,6 @@ func (t *AlwaysNoErrorCheck) Check(models.QuickLink) error {
 }
 
 func TestValidations_Check(t *testing.T) {
-
 	validationObject := Validations{}
 
 	validationObject.validators = []ValidationCheck{&AlwaysErrorCheck{}}
@@ -68,7 +67,6 @@ func TestValidations_Check(t *testing.T) {
 	validationObject.validators = []ValidationCheck{&AlwaysErrorCheck{}, &AlwaysErrorCheck{}}
 	err = validationObject.Check(models.QuickLink{Key: "key", URL: "value"})
 	assert.True(t, len(strings.Split(err.Error(), ",")) >= 2)
-
 }
 
 func TestDefaultValidatorObj(t *testing.T) {

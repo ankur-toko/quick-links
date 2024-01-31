@@ -34,7 +34,6 @@ func (v Validations) Check(r models.QuickLink) error {
 		return errors.New(strings.Join(errs, ","))
 	}
 	return nil
-
 }
 
 func DefaultValidatorObj() Validations {

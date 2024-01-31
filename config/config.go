@@ -1,33 +1,21 @@
 package config
 
-import (
-	"github.com/gookit/config/v2"
-	"github.com/gookit/config/v2/yaml"
-)
-
-const (
-	default_config_file = "./properties/config.yml"
-)
-
-func init() {
-	InitializeConfiguration(default_config_file)
+type ConfigProvider interface {
+	Get(string) (string, bool)
+	Set(string, string)
+	Reload() error // reload from the file again
 }
 
-func InitializeConfiguration(filepath string) error {
-	config.AddDriver(yaml.Driver)
-	err := config.LoadFiles(filepath)
-	return err
+var configObject = GetConfigProvider()
+
+func Get(k string) (string, bool) {
+	return configObject.Get(k)
 }
 
-func Get(key string) (string, bool) {
-	data := config.String(key)
-	if data != "" {
-		return data, true
-	} else {
-		return "", false
-	}
+func Set(k string, v string) {
+	configObject.Set(k, v)
 }
 
-func GetValOrDefault(key string) string {
-	return config.String(key)
+func Reload() {
+	configObject.Reload()
 }

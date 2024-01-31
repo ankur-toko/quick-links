@@ -5,7 +5,6 @@
 bin
 vendor
 
-
 *.log
 *.swp
 .idea
@@ -22,3 +21,6 @@ vendor
 # temp database for running the application
 data
 .DS_Store
+
+quicklinks_*
+*__debug*

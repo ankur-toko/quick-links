@@ -36,7 +36,7 @@ func (c *BaseCore) SaveQuickLink(record models.QuickLink) error {
 	e := c.Validations.Check(record)
 	if e == nil {
 		c.DB.Save(record)
-		fmt.Printf("save key:%v and url:%v successfull", record.Key, record.URL)
+		fmt.Printf("save key:%v and url:%v successful", record.Key, record.URL)
 	} else {
 		return e
 	}
@@ -44,5 +44,9 @@ func (c *BaseCore) SaveQuickLink(record models.QuickLink) error {
 }
 
 func (c *BaseCore) GetQuickLink(key string) *models.QuickLink {
-	return c.DB.Get(key)
+	if v := c.DB.Get(key); v != nil {
+		return v
+	} else {
+		return nil
+	}
 }
